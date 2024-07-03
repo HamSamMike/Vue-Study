@@ -1,42 +1,61 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HelloWorld from '../components/HelloWorld.vue'; // 示例组件路径，请根据实际情况调整
-import OptionOne from '../components/OptionOne.vue'; // 示例组件路径，请根据实际情况调整
-import OptionTwo from '../components/OptionTwo.vue'; // 示例组件路径，请根据实际情况调整
-import OptionThree from '../components/OptionThree.vue'; // 示例组件路径，请根据实际情况调整
-import OptionFour from '../components/OptionFour.vue'; // 示例组件路径，请根据实际情况调整
+import { createRouter, createWebHistory } from 'vue-router'
+import HelloWorld from '../components/HelloWorld.vue'
+import OptionOne from '../components/OptionOne.vue'
+import OptionTwo from '../components/OptionTwo.vue'
+import OptionThree from '../components/OptionThree.vue'
+import OptionFour from '../components/OptionFour.vue'
+import LoginPage from '../components/LoginPage.vue' // 确保引用正确
 
 const routes = [
   {
     path: '/',
+    name: 'LoginPage',
+    component: LoginPage
+  },
+  {
+    path: '/helloWorld',
     name: 'HelloWorld',
-    component: HelloWorld
+    component: HelloWorld,
+    meta: { requiresAuth: true }
   },
   {
     path: '/optionOne',
     name: 'OptionOne',
-    component: OptionOne
+    component: OptionOne,
+    meta: { requiresAuth: true }
   },
   {
     path: '/optionTwo',
     name: 'OptionTwo',
-    component: OptionTwo
+    component: OptionTwo,
+    meta: { requiresAuth: true }
   },
   {
     path: '/optionThree',
     name: 'OptionThree',
-    component: OptionThree
+    component: OptionThree,
+    meta: { requiresAuth: true }
   },
   {
     path: '/optionFour',
     name: 'OptionFour',
-    component: OptionFour
+    component: OptionFour,
+    meta: { requiresAuth: true }
   }
-  // 其他路由配置
-];
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-});
+})
 
-export default router;
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('auth')
+  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+    next({ name: 'LoginPage' })
+  } else {
+    next()
+  }
+})
+
+export default router

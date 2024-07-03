@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -29,10 +29,6 @@
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "jsconfig.json",
@@ -40,7 +36,7 @@
               "RelativeDocumentMoniker": "jsconfig.json",
               "ToolTip": "C:\\Users\\Administrator\\elementuitest\\jsconfig.json",
               "RelativeToolTip": "jsconfig.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-01T15:19:10.595Z",
               "EditorCaption": ""
@@ -55,8 +51,7 @@
               "RelativeToolTip": "vue.config.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-07-01T15:16:34.281Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-01T15:16:34.281Z"
             }
           ]
         }
