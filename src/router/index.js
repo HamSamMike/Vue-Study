@@ -1,61 +1,55 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HelloWorld from '../components/HelloWorld.vue'
-import OptionOne from '../components/OptionOne.vue'
-import OptionTwo from '../components/OptionTwo.vue'
-import OptionThree from '../components/OptionThree.vue'
-import OptionFour from '../components/OptionFour.vue'
-import LoginPage from '../components/LoginPage.vue' // 确保引用正确
+import { createRouter, createWebHistory } from 'vue-router';
+import HelloWorld from '../components/HelloWorld.vue'; // 示例组件路径，请根据实际情况调整
+import Login from '../components/Login.vue'; // 示例组件路径，请根据实际情况调整
+//import Home from '../components/MyHome.vue'; // 示例组件路径，请根据实际情况调整
+import OptionOne from '../components/OptionOne.vue'; // 示例组件路径，请根据实际情况调整
+import OptionTwo from '../components/OptionTwo.vue'; // 示例组件路径，请根据实际情况调整
+import OptionThree from '../components/OptionThree.vue'; // 示例组件路径，请根据实际情况调整
+import OptionFour from '../components/OptionFour.vue'; // 示例组件路径，请根据实际情况调整
+import MyHome from '../components/MyHome.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'LoginPage',
-    component: LoginPage
+    name: 'Login',
+    component: Login
   },
   {
     path: '/helloWorld',
     name: 'HelloWorld',
-    component: HelloWorld,
-    meta: { requiresAuth: true }
+    component: HelloWorld
+  },
+  {
+    path: '/myhome',
+    name: 'MyHome',
+    component: MyHome
   },
   {
     path: '/optionOne',
     name: 'OptionOne',
-    component: OptionOne,
-    meta: { requiresAuth: true }
+    component: OptionOne
   },
   {
     path: '/optionTwo',
     name: 'OptionTwo',
-    component: OptionTwo,
-    meta: { requiresAuth: true }
+    component: OptionTwo
   },
   {
     path: '/optionThree',
     name: 'OptionThree',
-    component: OptionThree,
-    meta: { requiresAuth: true }
+    component: OptionThree
   },
   {
     path: '/optionFour',
     name: 'OptionFour',
-    component: OptionFour,
-    meta: { requiresAuth: true }
+    component: OptionFour
   }
-]
+  // 其他路由配置
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('auth')
-  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
-    next({ name: 'LoginPage' })
-  } else {
-    next()
-  }
-})
-
-export default router
+export default router;

@@ -1,13 +1,20 @@
 <template>
-  <div>{{msg}}</div>
+  <el-container class="layout-container-demo" style="height: 500px">
+ <Bar></Bar>
+ <el-container>
+ {{msg}}
+</el-container>
+ </el-container>
 </template>
 
 <script>
+import Bar from "./MyBar.vue"
 export default {
-  name: 'optionThree',
+  name: 'optionTwo',
+  components: {Bar},
   data () {
     return {
-      msg: 'Option Three'
+      msg: 'Option Two'
     }
   }
 }
